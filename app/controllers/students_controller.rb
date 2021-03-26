@@ -4,14 +4,27 @@ class StudentsController < ApplicationController
   end
   
   def new
+    @student = Student.new
   end
 
   def create
+    @student = Student.new(student_params)
+    if @student.save 
+      flash[:notice] = "Successfully signed up"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+  end
+
+  private 
+  def student_params
+    params.require(:student).permit(:name, :email)
   end
 end

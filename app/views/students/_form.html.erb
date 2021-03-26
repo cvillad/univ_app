@@ -1,0 +1,15 @@
+<%= form_for @student, html: {class: "col s12"} do |f| %>
+  <div class= "row">
+    <div class="input-field col s12">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+  </div>
+  <div class= "row">
+    <div class="input-field col s12">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <%= f.submit "Sign Up", class: "btn waves-effect waves-light right" %>
+<% end %>
