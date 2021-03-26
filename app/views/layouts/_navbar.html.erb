@@ -6,7 +6,9 @@
       <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path %></li>
-        <li><%= link_to "Enrollments", about_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Enrollments", students_path %></li>
+        <% end %>
         <li><a class="dropdown-trigger" data-target="account-dropdown">
           Account<i class="material-icons right">arrow_drop_down</i>
         </a></li>
@@ -15,8 +17,10 @@
   </div>
 </nav>
 <ul class="sidenav" id="mobile-menu">
-  <li><a href="sass.html">Courses</a></li>
-  <li><a href="badges.html">Enrollments</a></li>
+  <li><%= link_to "Courses", root_path %></li>
+  <% if logged_in? %>
+    <li><%= link_to "Enrollments", students_path %></li>
+  <% end %>
   <li><a class="dropdown-trigger" data-target="account-dropdown-mobile">
     Account<i class="material-icons right">arrow_drop_down</i>
   </a></li>
