@@ -1,15 +1,27 @@
-<%= form_for @student, html: {class: "col s12"} do |f| %>
-  <div class= "row">
-    <div class="input-field col s12">
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: true %>
+<%= render "shared/errors", object: @student %>
+<div class="container">
+  <div class="row center sign-up-form">
+    <div class="col s12 m12 l12">
+      <div class="card-panel">
+        <h3 class="center-align"><%= @student.new_record?? "Sign Up" : "Edit profile" %></h3>
+        <div class="row">
+          <%= form_for @student, html: {class: "col s12"} do |f| %>
+            <div class= "row">
+              <div class="input-field col s12">
+                <%= f.label :name %>
+                <%= f.text_field :name, autofocus: true %>
+              </div>
+            </div>
+            <div class= "row">
+              <div class="input-field col s12">
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+              </div>
+            </div>
+            <%= f.submit @student.new_record?? "Sign Up" : "Update profile" , class: "btn waves-effect waves-light right" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class= "row">
-    <div class="input-field col s12">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-  </div>
-  <%= f.submit @student.new_record? ? "Sign Up" : "Update profile" , class: "btn waves-effect waves-light right" %>
-<% end %>
+</div>
