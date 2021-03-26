@@ -14,11 +14,26 @@
             </div>
             <div class= "row">
               <div class="input-field col s12">
-                <%= f.label :email %>
+                <%= f.label :email, class: "active" %>
                 <%= f.text_field :email %>
               </div>
             </div>
-            <%= f.submit @student.new_record?? "Sign Up" : "Update profile" , class: "btn waves-effect waves-light right" %>
+            <div class= "row">
+              <div class="input-field col s12">
+                <%= f.label :password, class: "active" %>
+                <%= f.password_field :password %>
+              </div>
+            </div>
+            <div class= "row">
+              <div class="input-field col s12">
+                <%= f.label :password_confirmation, class: "active" %>
+                <%= f.password_field :password_confirmation %>
+              </div>
+            </div>
+            <%= f.button @student.new_record? ? 
+                '<i class="material-icons right">send</i>Sign Up'.html_safe : 
+                '<i class="material-icons right">send</i>Update profile'.html_safe, 
+                class: "btn waves-effect waves-light right" %>
           <% end %>
         </div>
       </div>
