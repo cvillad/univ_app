@@ -11,5 +11,5 @@
       <%= f.text_field :email %>
     </div>
   </div>
-  <%= f.submit "Sign Up", class: "btn waves-effect waves-light right" %>
+  <%= f.submit @student.new_record? ? "Sign Up" : "Update profile" , class: "btn waves-effect waves-light right" %>
 <% end %>
