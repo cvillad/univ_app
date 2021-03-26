@@ -1,6 +1,12 @@
 <ul id="account-dropdown" class="dropdown-content">
   <li><%= session_link %></li>
+  <% if logged_in? %>
+    <li><%= link_to "profile", current_user %></li>
+  <% end %>
 </ul>
 <ul id="account-dropdown-mobile" class="dropdown-content">
   <li><%= session_link %></li>
+  <% if logged_in? %>
+    <li><%= link_to "profile", current_user %></li>
+  <% end %>
 </ul>

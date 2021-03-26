@@ -5,4 +5,6 @@ class Student < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                     length: { minimum: 5, maximum: 105 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
+  has_many :student_courses
+  has_many :courses, through: :student_courses
 end
